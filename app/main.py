@@ -18,9 +18,11 @@ def create_person_list(people: list[dict]) -> list:
         name = person_dict["name"]
         person = Person.people[name]
 
-        if person_dict.get("wife"):
+        wife_name = person_dict.get("wife")
+        if wife_name and wife_name in Person.people:
             person.wife = Person.people[person_dict["wife"]]
-        if person_dict.get("husband"):
+        husband_name = person_dict.get("husband")
+        if husband_name and husband_name in Person.people:
             person.husband = Person.people[person_dict["husband"]]
 
     return person_list
